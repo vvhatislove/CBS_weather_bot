@@ -13,6 +13,7 @@ BOT_API_TOKEN = os.getenv('BOT_API_TOKEN')
 WEATHER_API_TOKEN = os.getenv('WEATHER_API_TOKEN')
 
 bot = telebot.TeleBot(BOT_API_TOKEN)
+print('bot is running!')
 
 
 @bot.message_handler(commands=['start'])
