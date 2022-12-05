@@ -53,8 +53,9 @@ def weather_command(message: types.Message):
 def check_callback(callback: types.CallbackQuery):
     for city in consts.CITIES_OF_UKRAINE:
         if city == callback.data:
-            bot.send_message(callback.message.chat.id,
-                             dict_to_message(get_dict_from_openweather(city, WEATHER_API_TOKEN)))
+            bot.edit_message_text(message_id=callback.message.id,
+                                  chat_id=callback.message.chat.id,
+                                  text=dict_to_message(get_dict_from_openweather(city, WEATHER_API_TOKEN)))
             bot.answer_callback_query(callback.id)
 
 
